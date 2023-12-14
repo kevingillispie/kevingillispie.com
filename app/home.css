@@ -1,8 +1,16 @@
 @import url("https://use.typekit.net/pkm1tip.css");
 
-.vocation-web {
+.vocation-web,
+.vocation-software {
     font-family: "courage", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 8em;
+    line-height: .75;
+}
+
+.vocation-ampersand {
+    font-family: "timberline", sans-serif;
+    font-size: 12em;
+    line-height: 0;
 }

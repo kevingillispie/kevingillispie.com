@@ -21,7 +21,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <Navigation />
-                <Text3dWeb />
+                {/* <Text3dWeb /> */}
                 {children}
             </body>
         </html>
