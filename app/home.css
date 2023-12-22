@@ -14,3 +14,30 @@
     font-size: 12em;
     line-height: 0;
 }
+
+.font-hack-regular {
+    font-family: 'hack', monospace, sans-serif;
+}
+
+.font-color-cerulean {
+    color: color(srgb 0.3262 0.7865 1);
+}
+
+.text-trans-initial {
+    text-transform: initial;
+}
+
+@media screen and (max-width: 576px) {
+    .k-logo-hero {
+        width: 30vw;
+    }
+
+    .vocation-web,
+    .vocation-software {
+        font-size: 4em;
+    }
+
+    .vocation-ampersand {
+        font-size: 6em;
+    }
+}

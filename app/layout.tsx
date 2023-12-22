@@ -1,9 +1,7 @@
-import Navigation from "./components/navigation/navbar"
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
-import './home.css'
-import RotatingBox from "./components/rotating-box-logo"
+import '@/app/globals.css'
+import '@/app/home.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,8 +18,6 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <Navigation />
-                <RotatingBox />
                 {children}
             </body>
         </html>
