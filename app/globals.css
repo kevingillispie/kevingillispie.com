@@ -22,3 +22,15 @@ body {
             transparent,
             rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
+
+.font-hack-regular {
+    font-family: 'hack', monospace, sans-serif !important;
+}
+
+.font-color-cerulean {
+    color: color(srgb 0.3262 0.7865 1);
+}
+
+.text-trans-initial {
+    text-transform: initial;
+}
