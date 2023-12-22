@@ -32,5 +32,5 @@ body {
 }
 
 .text-trans-initial {
-    text-transform: initial;
+    text-transform: initial !important;
 }
