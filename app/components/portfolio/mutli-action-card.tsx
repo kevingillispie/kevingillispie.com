@@ -34,10 +34,10 @@ export default function MultiActionAreaCard() {
         ],
     ]
 
-    const cards = [];
+    const pCards = new Array();
 
     project.forEach(p => {
-        cards.push(
+        pCards.push(
             <Grid item xs={12} md={6}>
                 <Card sx={{ flexGrow: 1 }} className='p-6'>
                     <CardActionArea>
@@ -48,7 +48,7 @@ export default function MultiActionAreaCard() {
                             alt={p[4]}
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="h5">
+                            <Typography gutterBottom variant="h3" component="h3">
                                 {p[0]}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
@@ -68,7 +68,7 @@ export default function MultiActionAreaCard() {
 
     return (
         <Grid container spacing={2}>
-            {cards}
+            {pCards}
         </Grid>
     )
 }
