@@ -36,9 +36,9 @@ export default function MultiActionAreaCard() {
 
     const pCards = new Array();
 
-    project.forEach(p => {
+    project.forEach((p, i) => {
         pCards.push(
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} key={i}>
                 <Card sx={{ flexGrow: 1 }} className='p-6'>
                     <CardActionArea>
                         <CardMedia

@@ -1,10 +1,11 @@
 'use client'
+import * as React from 'react'
 import Button from '@mui/material/Button'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import Link from 'next/link';
 
 export default function TopNav() {
-    const onHover = (e) => {
+    const onHover = (e: React.ChangeEvent<HTMLInputElement>) => {
         document.querySelectorAll('svg.' + e.target.dataset.svg).forEach(mb => {
             mb.classList.toggle('hidden')
         });
