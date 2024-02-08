@@ -33,7 +33,7 @@ export default function Home() {
                             <div className="letters software">Software</div>
                             <div className="line line2"></div>
                         </div>
-                        <div className="container dev mt-6">
+                        <div className="container dev mt-1 lg:mt-6">
                             <div className="developer fw-bold">Developer</div>
                         </div>
                     </h2>
