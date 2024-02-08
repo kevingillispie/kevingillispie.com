@@ -27,3 +27,58 @@
         font-size: 6em;
     }
 }
+
+.job-title {
+    position: relative;
+    font-weight: 300;
+    font-size: 10vw;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.job-title .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 0 .05em 0 .15em;
+    line-height: .75em;
+}
+
+.job-title .line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 3px;
+    width: 100%;
+    background-color: #402d2d;
+    transform-origin: 0.5 0;
+}
+
+.job-title .letters {
+    display: inline-block;
+    opacity: 0;
+    font-family: Courage, sans-serif;
+    line-height: 0;
+}
+
+.job-title .ampersand {
+    font-family: Timberline, serif;
+    font-weight: 400;
+    font-size: 1.5em;
+    margin-left: -.1em;
+    text-shadow: 5px 2px 0 white;
+}
+
+.container.dev {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.job-title .developer {
+    opacity: 0;
+    font-size: .25em;
+    font-weight: bold;
+    margin: 10px auto 0;
+    direction: rtl;
+}
