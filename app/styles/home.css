@@ -66,8 +66,8 @@
     font-family: Timberline, serif;
     font-weight: 400;
     font-size: 1.5em;
-    margin-left: -.1em;
-    text-shadow: 5px 2px 0 white;
+    margin-left: .05em;
+    text-shadow: 5px 3px 0 whitesmoke;
 }
 
 .container.dev {

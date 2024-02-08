@@ -34,3 +34,11 @@ body {
 .text-trans-initial {
     text-transform: initial !important;
 }
+
+.nav-hover-effect:hover svg:nth-of-type(1) {
+    display: none;
+}
+
+.nav-hover-effect:hover svg:nth-of-type(2) {
+    display: block;
+}

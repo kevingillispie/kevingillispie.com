@@ -21,7 +21,7 @@ export default function TopNav() {
             <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
                 <div className="fixed left-0 top-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
                     <ButtonGroup variant="text" aria-label="text button group">
-                        <Link href={'/'} onMouseEnter={onHover} onMouseLeave={onHover}>
+                        <Link href={'/'} className='nav-hover-effect'>
                             <Button variant="text" data-svg="home-icon" className='lg:pt-4 lg:px-5 lg:pb-3 lg:static lg:w-auto lg:rounded-xl font-hack-regular text-trans-initial'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="home-icon bi bi-house" viewBox="0 0 16 16">
                                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
@@ -36,7 +36,7 @@ export default function TopNav() {
                 </div>
                 <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
                     <ButtonGroup variant="text" aria-label="text button group">
-                        <Link href={'/portfolio'} onMouseEnter={onHover} onMouseLeave={onHover}>
+                        <Link href={'/portfolio'} className='nav-hover-effect'>
                             <Button variant="text" data-svg="code-icon" className='lg:pt-4 lg:px-5 lg:pb-3 lg:static lg:w-auto lg:rounded-xl font-hack-regular text-trans-initial'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="code-icon bi bi-code me-3" viewBox="0 0 16 16">
                                     <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z" />
@@ -48,7 +48,7 @@ export default function TopNav() {
                             </Button>
                         </Link>
 
-                        <Link href={'/contact'} onMouseEnter={onHover} onMouseLeave={onHover}>
+                        <Link href={'/contact'} className='nav-hover-effect'>
                             <Button variant="text" data-svg="contact-mailbox" className='lg:pt-4 lg:px-5 lg:pb-3 lg:static lg:w-auto lg:rounded-xl font-hack-regular text-trans-initial'>
                                 <span>Contact</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="contact-mailbox bi bi-mailbox ms-3" viewBox="0 0 16 16">
