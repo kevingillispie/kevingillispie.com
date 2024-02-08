@@ -14,7 +14,7 @@ export default function TopNav() {
                 </svg>
             </div>
             <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-                <div className="fixed left-0 top-0 flex lg:h-48 w-full items-end justify-center backdrop-blur-md lg:bg-transparent lg:static lg:h-auto lg:w-auto lg:bg-none">
+                <div className="fixed left-0 top-0 flex lg:h-48 w-full items-end lg:justify-center backdrop-blur-md lg:bg-transparent lg:static lg:h-auto lg:w-auto lg:bg-none">
                     <ButtonGroup variant="text" aria-label="text button group">
                         <Link href={'/'} className='nav-hover-effect'>
                             <Button variant="text" data-svg="home-icon" className='lg:pt-4 lg:px-5 lg:pb-3 lg:static lg:w-auto lg:rounded-xl font-hack-regular text-trans-initial'>
