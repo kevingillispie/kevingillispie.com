@@ -5,12 +5,7 @@ import ButtonGroup from '@mui/material/ButtonGroup'
 import Link from 'next/link';
 
 export default function TopNav() {
-    const onHover = (e: any) => {
-        document.querySelectorAll('svg.' + e.target.dataset.svg).forEach(mb => {
-            mb.classList.toggle('hidden')
-        });
-    }
-
+    
     return (
         <>
             <div id="waveform-container" className='hidden lg:block'>
