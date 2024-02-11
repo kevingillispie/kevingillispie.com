@@ -1,6 +1,5 @@
 
 document.fonts.ready.then(function () {
-    console.log('animation load')
     anime.timeline({
         loop: false
     }).add({

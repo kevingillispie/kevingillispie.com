@@ -67,7 +67,7 @@ export default function MultiActionAreaCard() {
     })
 
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={6}>
             {pCards}
         </Grid>
     )
