@@ -3,7 +3,6 @@ import * as React from 'react';
 import { PaletteMode } from '@mui/material';
 import Script from 'next/script';
 import NavBar from './components/navigation/navbar'
-import Klogo from './components/images/k-logo';
 
 export default function Home() {
     const [mode] = React.useState<PaletteMode>('dark');
@@ -25,7 +24,7 @@ export default function Home() {
                 </div>
                 <NavBar />
                 <div className="relative z-10 flex flex-col place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-                    <Klogo width={logoProps.w} height={logoProps.h} />
+                    {/* <Klogo width={logoProps.w} height={logoProps.h} /> */}
                     <h2 className="job-title flex flex-col mt-6 dark:drop-shadow-[0_0_0.3rem_#ffffff70]">
                         <div className="text-wrapper">
                             <div className="line line1"></div>
@@ -35,7 +34,7 @@ export default function Home() {
                             <div className="line line2"></div>
                         </div>
                         <div className="container dev mt-1 lg:mt-6">
-                            <div className="developer fw-bold">Developer</div>
+                            <div className="developer fw-bold font-transducer-black">Developer</div>
                         </div>
                     </h2>
                 </div>

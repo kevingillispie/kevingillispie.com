@@ -1,4 +1,4 @@
-@import url("https://use.typekit.net/pkm1tip.css");
+@import url("https://use.typekit.net/und2nfh.css");
 
 @tailwind base;
 @tailwind components;
@@ -33,6 +33,28 @@ body {
 
 .text-trans-initial {
     text-transform: initial !important;
+}
+
+.font-bdr-mono {
+    font-family: bdr-mono, sans-serif;
+}
+
+.font-transducer-hairline {
+    font-family: "transducer", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.font-transducer-bold {
+    font-family: "transducer", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.font-transducer-black {
+    font-family: "transducer-extended", sans-serif;
+    font-weight: 900;
+    font-style: normal;
 }
 
 .nav-hover-effect:hover svg:nth-of-type(1) {

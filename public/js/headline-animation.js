@@ -1,4 +1,3 @@
-
 document.fonts.ready.then(function () {
     anime.timeline({
         loop: false
@@ -14,13 +13,6 @@ document.fonts.ready.then(function () {
         easing: "easeOutExpo",
         translateY: (el, i) => (-.825 + 0.57 * 3 * i) + "em"
     }).add({
-        targets: '.job-title .ampersand',
-        opacity: [0, 1],
-        translateY: '-14px',
-        easing: "easeOutExpo",
-        duration: 600,
-        offset: '-=600'
-    }).add({
         targets: '.job-title .web',
         opacity: [0, 1],
         translateX: ["0.5em", 0],
@@ -31,6 +23,14 @@ document.fonts.ready.then(function () {
         targets: '.job-title .software',
         opacity: [0, 1],
         translateX: ["-0.5em", 0],
+        easing: "easeOutExpo",
+        duration: 600,
+        offset: '-=600'
+    }).add({
+        targets: '.job-title .ampersand',
+        opacity: [0, 1],
+        translateX: ['100vw', 0],
+        // translateY: '-1px',
         easing: "easeOutExpo",
         duration: 600,
         offset: '-=600'
