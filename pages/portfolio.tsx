@@ -1,6 +1,7 @@
 import NavBar from "@/app/components/navigation/navbar"
 import MultiActionAreaCard from "@/app/components/portfolio/mutli-action-card"
 import Typography from '@mui/material/Typography'
+import Script from "next/script"
 import '@/app/styles/globals.css'
 import '@/app/styles/portfolio.css'
 
@@ -14,6 +15,9 @@ export default function Portfolio() {
             <div className="container">
                 <MultiActionAreaCard />
             </div>
+            <Script
+                src='/js/page-animations.js'
+            />
         </main>
     )
 }

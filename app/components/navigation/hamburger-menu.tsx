@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/joy/Box';
-import IconButton from '@mui/joy/IconButton';
 import Drawer from '@mui/joy/Drawer';
 import Input from '@mui/joy/Input';
 import List from '@mui/joy/List';
@@ -9,15 +8,17 @@ import Typography from '@mui/joy/Typography';
 import ModalClose from '@mui/joy/ModalClose';
 import Menu from '@mui/icons-material/Menu';
 import Search from '@mui/icons-material/Search';
+import Link from 'next/link';
+import Button from '@mui/material/Button';
 
 export default function DrawerMobileNavigation() {
     const [open, setOpen] = React.useState(false);
 
     return (
         <React.Fragment>
-            <IconButton variant="outlined" color="neutral" onClick={() => setOpen(true)}>
+            <Button variant="text" className='home-btn-devname lg:pt-3 lg:px-5 lg:pb-3 lg:static lg:w-auto rounded-full dark:text-slate-200' onClick={() => setOpen(true)}>
                 <Menu />
-            </IconButton>
+            </Button>
             <Drawer open={open} onClose={() => setOpen(false)}>
                 <Box
                     sx={{
@@ -82,8 +83,8 @@ export default function DrawerMobileNavigation() {
                         '& > div': { justifyContent: 'center' },
                     }}
                 >
-                    <ListItemButton sx={{ fontWeight: 'lg' }}>Home</ListItemButton>
-                    <ListItemButton>Portfolio</ListItemButton>
+                    <ListItemButton sx={{ fontWeight: 'lg' }}><Link href={'/'}>Home</Link></ListItemButton>
+                    <ListItemButton><Link href={'/portfolio'}>Portfolio</Link></ListItemButton>
                     <ListItemButton>Contact</ListItemButton>
                 </List>
             </Drawer>

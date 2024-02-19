@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import ButtonGroup from '@mui/material/ButtonGroup'
 import Link from 'next/link';
-import Script from 'next/script';
 import DrawerMobileNavigation from './hamburger-menu'
 
 const logoStyle = {
@@ -28,7 +27,7 @@ interface NavBarProps {
 
 // function NavBar({ mode, toggleColorMode }: NavBarProps) {
 function NavBar() {
-    const [open, setOpen] = React.useState(false);
+    // const [open, setOpen] = React.useState(false);
 
     const devNameStyle = {
         opacity: 0
@@ -93,15 +92,21 @@ function NavBar() {
                         //     alignItems: 'center',
                         // }}
                         >
-                            <DrawerMobileNavigation />
+                            <Box
+                                sx={{
+                                    flexGrow: 1,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    mr: '-18px',
+                                    px: 0,
+                                }}
+                            >
+                                <DrawerMobileNavigation />
+                            </Box>
                         </Box>
                     </Toolbar>
                 </Container>
             </AppBar>
-            <Script
-                src='/js/navbar-animation.js'
-                className='animated-headling'
-            />
         </div>
     );
 }
