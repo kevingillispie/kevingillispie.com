@@ -22,12 +22,10 @@ const logoProps = {
 
 interface NavBarProps {
     mode: PaletteMode;
-    // toggleColorMode: () => void;
 }
 
-// function NavBar({ mode, toggleColorMode }: NavBarProps) {
 function NavBar() {
-    // const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
     const devNameStyle = {
         opacity: 0
@@ -86,23 +84,15 @@ function NavBar() {
                             </ButtonGroup>
                         </Box>
                         <Box
-                        // sx={{
-                        //     display: { xs: 'none', md: 'flex' },
-                        //     gap: 0.5,
-                        //     alignItems: 'center',
-                        // }}
+                            sx={{
+                                display: 'flex',
+                                mr: '-18px',
+                                px: 0,
+                            }}
                         >
-                            <Box
-                                sx={{
-                                    flexGrow: 1,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    mr: '-18px',
-                                    px: 0,
-                                }}
-                            >
+                            <ButtonGroup variant="text" aria-label="text button group">
                                 <DrawerMobileNavigation />
-                            </Box>
+                            </ButtonGroup>
                         </Box>
                     </Toolbar>
                 </Container>

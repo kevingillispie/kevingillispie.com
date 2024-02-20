@@ -41,6 +41,12 @@ body {
     font-family: bdr-mono, sans-serif;
 }
 
+.font-mono45-headline {
+    font-family: "mono45-headline", monospace;
+    font-weight: 500;
+    font-style: normal;
+}
+
 .font-transducer-hairline {
     font-family: "transducer", sans-serif;
     font-weight: 100;
