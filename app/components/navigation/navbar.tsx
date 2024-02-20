@@ -31,7 +31,7 @@ function NavBar({ mode }: NavBarProps) {
     }
 
     return (
-        <div className=''>
+        <div>
             <AppBar
                 position="fixed"
                 sx={{

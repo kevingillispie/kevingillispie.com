@@ -22,7 +22,7 @@ export default function MultiActionAreaCard() {
         [
             'Euclidean Algorithm',
             'An algorithmic solution to finding the GCD of two positive integers.',
-            '/portfolio',
+            '/portfolio/euclidean-algorithm',
             'https://kevingillispie.com/wp-content/uploads/2023/11/euclidean-algorithm.jpg',
             'Euclidean Algorithm, Euclid portrait.',
             1000,
