@@ -6,6 +6,7 @@ import Card from '@mui/joy/Card';
 import CardCover from '@mui/joy/CardCover';
 import CardContent from '@mui/joy/CardContent';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function MultiActionAreaCard() {
     const project = [
@@ -56,36 +57,38 @@ export default function MultiActionAreaCard() {
                 sx={{ display: 'flex', flexWrap: 'wrap', p: 0, m: '0 auto 20px' }}
                 key={i}
             >
-                <Card component="li" sx={{ minWidth: 300, flexGrow: 1, width: projectData.width }} >
-                    <CardCover>
-                        <Image
-                            src={projectData.src.toString()}
-                            width={parseInt(projectData.width.toString())}
-                            height={parseInt(projectData.height.toString())}
-                            loading="lazy"
-                            alt={projectData.alt.toString()}
+                <Link href={projectData.link.toString()}>
+                    <Card component="li" sx={{ minWidth: 300, flexGrow: 1, width: projectData.width }} >
+                        <CardCover>
+                            <Image
+                                src={projectData.src.toString()}
+                                width={parseInt(projectData.width.toString())}
+                                height={parseInt(projectData.height.toString())}
+                                loading="lazy"
+                                alt={projectData.alt.toString()}
+                            />
+                        </CardCover>
+                        <CardCover
+                            sx={{
+                                background:
+                                    'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+                            }}
                         />
-                    </CardCover>
-                    <CardCover
-                        sx={{
-                            background:
-                                'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
-                        }}
-                    />
-                    <CardContent sx={{ justifyContent: 'flex-end', marginTop: '300px', color: 'white' }}>
-                        <Typography
-                            variant="h2"
-                            component="h2"
-                        >
-                            {projectData.title}
-                        </Typography>
-                        <Typography
-                            variant="body1"
-                        >
-                            {projectData.desc}
-                        </Typography>
-                    </CardContent>
-                </Card>
+                        <CardContent sx={{ justifyContent: 'flex-end', marginTop: '300px', color: 'white' }}>
+                            <Typography
+                                variant="h2"
+                                component="h2"
+                            >
+                                {projectData.title}
+                            </Typography>
+                            <Typography
+                                variant="body1"
+                            >
+                                {projectData.desc}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Link>
             </Box>
         )
     })

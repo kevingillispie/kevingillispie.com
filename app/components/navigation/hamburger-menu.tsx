@@ -19,7 +19,11 @@ export default function DrawerMobileNavigation() {
             <Button variant="text" className='home-btn-devname lg:pt-3 lg:px-5 lg:pb-3 lg:static lg:w-auto rounded-full dark:text-slate-200' onClick={() => setOpen(true)}>
                 <Menu />
             </Button>
-            <Drawer open={open} onClose={() => setOpen(false)}>
+            <Drawer
+                anchor="right"
+                open={open}
+                onClose={() => setOpen(false)}
+            >
                 <Box
                     sx={{
                         display: 'flex',
@@ -83,11 +87,15 @@ export default function DrawerMobileNavigation() {
                         '& > div': { justifyContent: 'center' },
                     }}
                 >
-                    <ListItemButton sx={{ fontWeight: 'lg' }}><Link href={'/'}>Home</Link></ListItemButton>
-                    <ListItemButton><Link href={'/portfolio'}>Portfolio</Link></ListItemButton>
+                    <ListItemButton sx={{ fontWeight: 'lg' }}>
+                        <Link href={'/'}>Home</Link>
+                    </ListItemButton>
+                    <ListItemButton>
+                        <Link href={'/portfolio'}>Portfolio</Link>
+                    </ListItemButton>
                     <ListItemButton>Contact</ListItemButton>
                 </List>
             </Drawer>
-        </React.Fragment>
+        </React.Fragment >
     );
 }
