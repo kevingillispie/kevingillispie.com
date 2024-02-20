@@ -1,8 +1,5 @@
 import * as React from 'react';
-import Box from '@mui/joy/Box';
-import Card from '@mui/joy/Card';
-import CardCover from '@mui/joy/CardCover';
-import CardContent from '@mui/joy/CardContent';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Script from 'next/script';
 import NavBar from '@/app/components/navigation/navbar';
@@ -22,11 +19,19 @@ export default function MediaCover() {
                 component="h1"
                 className="flex flex-row my-6"
             >
-                <span className="page-title" style={titleStyle}>Portfolio of Programming Projects</span>
+                <span className="page-title" style={titleStyle}>PORTFOLIO of Programming Projects</span>
             </Typography>
+            <Box
+                sx={{
+                    flexGrow: 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    px: 0,
+                }}
+            >
+                <MultiActionAreaCard />
+            </Box>
 
-            <MultiActionAreaCard />
-            
             <Script
                 src='/js/page-animations.js'
                 defer
