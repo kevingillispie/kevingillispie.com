@@ -14,13 +14,15 @@ export default function MediaCover() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-start pt-16 lg:p-16">
             <NavBar />
-            <Typography
-                variant="h2"
-                component="h1"
-                className="flex flex-row my-6"
-            >
-                <span className="page-title" style={titleStyle}>PORTFOLIO of Programming Projects</span>
-            </Typography>
+            <Box sx={{ textAlign: 'center', m: 1 }}>
+                <Typography
+                    variant="h2"
+                    component="h1"
+                    className="flex flex-row"
+                >
+                    <span className="page-title my-12" style={titleStyle}>PORTFOLIO of PROGRAMMING PROJECTS</span>
+                </Typography>
+            </Box>
             <Box
                 sx={{
                     flexGrow: 1,
@@ -28,6 +30,7 @@ export default function MediaCover() {
                     alignItems: 'center',
                     px: 0,
                 }}
+                className='set-card-width'
             >
                 <MultiActionAreaCard />
             </Box>

@@ -45,7 +45,7 @@ export default function MultiActionAreaCard() {
     const pCards = new Array();
 
     project.forEach((p, i) => {
-        let props = {
+        let projectData = {
             title: p[0],
             desc: p[1],
             link: p[2],
@@ -55,44 +55,19 @@ export default function MultiActionAreaCard() {
             height: p[6]
         }
         pCards.push(
-            // <Grid item xs={12} md={6} key={i}>
-            //     <Card sx={{ flexGrow: 1 }} className='p-6'>
-            //         <CardActionArea>
-            //             <CardMedia
-            //                 component="img"
-            //                 height={p[5]}
-            //                 image={p[3]}
-            //                 alt={p[4]}
-            //             />
-            //             <CardContent>
-            //                 <Typography gutterBottom variant="h3" component="h3">
-            //                     {p[0]}
-            //                 </Typography>
-            //                 <Typography variant="body2" color="text.secondary">
-            //                     {p[1]}
-            //                 </Typography>
-            //             </CardContent>
-            //         </CardActionArea>
-            //         <CardActions>
-            //             <Button size="small" color="primary">
-            //                 Share
-            //             </Button>
-            //         </CardActions>
-            //     </Card>
-            // </Grid>
             <Box
                 component="ul"
                 sx={{ display: 'flex', flexWrap: 'wrap', p: 0, m: '0 auto 20px' }}
                 key={i}
             >
-                <Card component="li" sx={{ minWidth: 300, flexGrow: 1, width: props.width }}>
+                <Card component="li" sx={{ minWidth: 300, flexGrow: 1, width: projectData.width }} >
                     <CardCover>
                         <Image
-                            src={props.src.toString()}
-                            width={parseInt(props.width.toString())}
-                            height={parseInt(props.height.toString())}
+                            src={projectData.src.toString()}
+                            width={parseInt(projectData.width.toString())}
+                            height={parseInt(projectData.height.toString())}
                             loading="lazy"
-                            alt={props.alt.toString()}
+                            alt={projectData.alt.toString()}
                         />
                     </CardCover>
                     <CardCover
@@ -106,12 +81,12 @@ export default function MultiActionAreaCard() {
                             variant="h2"
                             component="h2"
                         >
-                            {props.title}
+                            {projectData.title}
                         </Typography>
                         <Typography
                             variant="body1"
                         >
-                            {props.desc}
+                            {projectData.desc}
                         </Typography>
                     </CardContent>
                 </Card>

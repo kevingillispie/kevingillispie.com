@@ -1,0 +1,7 @@
+
+@media screen and (max-width:1000px) {
+    .set-card-width,
+    .set-card-width * {
+        width: 100%;
+    }
+}
