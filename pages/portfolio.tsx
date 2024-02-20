@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { PaletteMode } from '@mui/material';
 import Script from 'next/script';
 import NavBar from '@/app/components/navigation/navbar';
 import MultiActionAreaCard from '@/app/components/portfolio/mutli-action-card';
@@ -8,12 +9,13 @@ import '@/app/styles/globals.css'
 import '@/app/styles/portfolio.css'
 
 export default function MediaCover() {
+    const [mode] = React.useState<PaletteMode>('dark');
     const titleStyle = {
         opacity: 0
     }
     return (
         <main className="flex min-h-screen flex-col items-center justify-start pt-16 lg:p-16">
-            <NavBar />
+            <NavBar mode={mode} />
             <Box sx={{ textAlign: 'center', m: 1 }}>
                 <Typography
                     variant="h2"

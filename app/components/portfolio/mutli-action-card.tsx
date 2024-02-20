@@ -1,10 +1,6 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-// import Card from '@mui/material/Card';
-// import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
 import Box from '@mui/joy/Box';
 import Card from '@mui/joy/Card';
 import CardCover from '@mui/joy/CardCover';
