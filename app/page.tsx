@@ -4,7 +4,7 @@ import { PaletteMode } from '@mui/material';
 import NavBar from './components/navigation/navbar'
 
 export default function Home() {
-    const [mode] = React.useState<PaletteMode>('dark');
+    const [mode] = React.useState<PaletteMode>('light');
 
     const logoProps = {
         w: 180,
