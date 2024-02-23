@@ -10,7 +10,7 @@ import NavBar from '@/app/components/navigation/navbar';
 import '@/app/styles/euclids-prism.css'
 
 export default function BasicTextFields() {
-    const [mode] = React.useState<PaletteMode>('dark');
+    const [mode] = React.useState<PaletteMode>('light');
     const formAction = '#default-is-prevented.lolz';
     const titleStyle = {
         opacity: 0

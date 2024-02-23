@@ -9,7 +9,7 @@ import '@/app/styles/globals.css'
 import '@/app/styles/portfolio.css'
 
 export default function MediaCover() {
-    const [mode] = React.useState<PaletteMode>('dark');
+    const [mode] = React.useState<PaletteMode>('light');
     const titleStyle = {
         opacity: 0
     }
