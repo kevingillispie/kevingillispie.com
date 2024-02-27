@@ -6,17 +6,12 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import Script from 'next/script';
-import { PaletteMode } from '@mui/material';
 import NavBar from '@/app/components/navigation/navbar';
 import '@/app/styles/globals.css'
 import '@/app/styles/euclids-prism.css'
 // import '@/app/styles/euclid.css'
 
-interface PageProps {
-    mode: PaletteMode;
-}
-
-export default function BasicTextFields({mode}: PageProps) {
+export default function BasicTextFields() {
     const formAction = '#default-is-prevented.lolz';
     const titleStyle = {
         // opacity: 0
@@ -24,7 +19,7 @@ export default function BasicTextFields({mode}: PageProps) {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-start pt-16 lg:p-16">
-            <NavBar mode={mode}/>
+            <NavBar />
             <Box sx={{ textAlign: 'center', m: 1 }}>
                 <Typography
                     variant="h2"

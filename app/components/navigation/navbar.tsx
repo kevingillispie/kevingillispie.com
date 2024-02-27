@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { PaletteMode } from '@mui/material';
 import Link from 'next/link';
 import DrawerMobileNavigation from './hamburger-menu';
 
@@ -20,11 +19,7 @@ const logoProps = {
     h: 35
 }
 
-interface NavBarProps {
-    mode: PaletteMode;
-}
-
-function NavBar({mode}: NavBarProps) {
+function NavBar() {
 
     const devNameStyle = {
         opacity: 0
@@ -50,10 +45,10 @@ function NavBar({mode}: NavBarProps) {
                             justifyContent: 'space-between',
                             flexShrink: 0,
                             borderRadius: '999px',
-                            bgcolor:
-                                mode === 'dark'
-                                    ? 'rgba(0, 0, 0, 0.4)'
-                                    : 'rgba(255, 255, 255, 0.4)',
+                            bgcolor: 'rgba(255, 255, 255, 0.4)',
+                                // mode === 'dark'
+                                //     ? 'rgba(0, 0, 0, 0.4)'
+                                //     : 'rgba(255, 255, 255, 0.4)',
                             backdropFilter: 'blur(24px)',
                             maxHeight: 40,
                             border: '1px solid white',

@@ -1,19 +1,14 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { PaletteMode } from '@mui/material';
 import Script from 'next/script';
 import NavBar from '@/app/components/navigation/navbar';
 import MultiActionAreaCard from '@/app/components/portfolio/mutli-action-card';
 import '@/app/styles/globals.css'
 import '@/app/styles/portfolio.css'
 
-interface PageProps {
-    mode: PaletteMode;
-}
-
 export default function MediaCover() {
-    // const [modeSet] = React.useState<PaletteMode>(mode);
+
     const titleStyle = {
         opacity: 0
     }
