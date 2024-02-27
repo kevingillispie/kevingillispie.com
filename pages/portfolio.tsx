@@ -8,14 +8,18 @@ import MultiActionAreaCard from '@/app/components/portfolio/mutli-action-card';
 import '@/app/styles/globals.css'
 import '@/app/styles/portfolio.css'
 
+interface PageProps {
+    mode: PaletteMode;
+}
+
 export default function MediaCover() {
-    const [mode] = React.useState<PaletteMode>('light');
+    // const [modeSet] = React.useState<PaletteMode>(mode);
     const titleStyle = {
         opacity: 0
     }
     return (
         <main className="flex min-h-screen flex-col items-center justify-start pt-16 lg:p-16">
-            <NavBar mode={mode} />
+            <NavBar />
             <Box sx={{ textAlign: 'center', m: 1 }}>
                 <Typography
                     variant="h2"

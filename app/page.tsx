@@ -3,8 +3,14 @@ import * as React from 'react';
 import { PaletteMode } from '@mui/material';
 import NavBar from './components/navigation/navbar'
 
-export default function Home() {
-    const [mode] = React.useState<PaletteMode>('light');
+interface PageProps {
+    mode: PaletteMode;
+}
+
+export default function Home({mode}: PageProps) {
+    // const [mode, setMode] = React.useState<PaletteMode>('light');
+    // Update the theme only if the mode changes
+    // const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
     const logoProps = {
         w: 180,
