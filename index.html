@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Gillispie | Web Development and Cybersecurity</title>
+    <meta name="description"
+        content="Full-stack web developer, content creator, cybersecurity specialist in Los Angeles. Expert in WordPress, Next.js, &amp; modern web solutions. Build your dream site today!">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script class="schema-scalpel-seo"
+        type="application/ld+json">{"@context":"http://schema.org/","@id":"https://kevingillispie.com/#website","@type":"WebSite","url":"https://kevingillispie.com/","name":"Kevin Gillispie","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://kevingillispie.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}]}</script>
+    <script class="schema-scalpel-seo"
+        type="application/ld+json">{"@context":"http://schema.org/","@id":"https://kevingillispie.com/#webpage","@type":"WebPage","url":"https://kevingillispie.com/","name":"Kevin Gillispie | Web Developer and Cybersecurity"}</script>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://kevingillispie.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kevin Gillispie | Web Development and Cybersecurity">
+    <meta property="og:description"
+        content="Full-stack web developer, content creator, cybersecurity specialist in Los Angeles. Expert in WordPress, Next.js, &amp; modern, secure web solutions. Build your dream site today!">
+    <meta property="og:url" content="https://kevingillispie.com/">
+    <meta property="og:site_name" content="Kevin Gillispie">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kevin Gillispie | Web Development and Cybersecurity">
+    <meta name="twitter:description"
+        content="Full-stack web developer, content creator, cybersecurity specialist in Los Angeles. Expert in WordPress, Next.js, &amp; modern, secure web solutions. Build your dream site today!">
+    <meta name="twitter:site" content="@KevinLGillispie">
+    <meta name="twitter:creator" content="@KevinLGillispie">
+    <style>
+        :root {
+            --frost-white: #d8dfe6;
+            font-family: Inter, sans-serif;
+            font-feature-settings: 'liga' 1, 'calt' 1;
+        }
+
+        @font-face {
+            font-family: 'Italianno';
+            src: url('/fonts/italianno-regular.woff2') format('woff2'),
+                url('/fonts/italianno-regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @supports (font-variation-settings: normal) {
+            :root {
+                font-family: InterVariable, sans-serif;
+            }
+        }
+
+        /* Tiny but essential a11y helpers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px 12px;
+            z-index: 10000;
+            transition: top .3s;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Inter';
+            color: #f0f8ff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)),
+                url('https://picsum.photos/1920/1080?blur=2&random=1');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: background-image 1.6s ease-in-out;
+        }
+
+        main {
+            padding-top: 6em;
+        }
+
+        header {
+            display: flex;
+            justify-content: end;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: .5rem 3rem;
+            z-index: 100;
+        }
+
+        header button {
+            width: 127px;
+            transform: translate(-2rem, 5rem);
+            padding: .75rem 1.5rem;
+            background-color: rgba(255, 255, 255, .1);
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0);
+            backdrop-filter: blur(6px);
+            border: 1.5px solid var(--frost-white);
+            border-radius: 25px;
+            color: var(--frost-white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        header button:hover,
+        header button:focus-visible {
+            background-color: rgba(255, 255, 255, .15);
+            box-shadow: 0 2px 12px rgba(255, 255, 255, .3);
+            border-radius: 8px;
+            border-color: #64b5f6;
+            outline: 3px solid #90caf9;
+            outline-offset: 3px;
+        }
+
+        /* Everything else is EXACTLY your original code – untouched */
+        .h-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        h1 {
+            font-size: 300;
+        }
+
+        h2 {
+            font-size: 1rem;
+            font-weight: 200;
+        }
+
+        .c-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .clock-wrapper {
+            position: relative;
+            width: 420px;
+            height: 420px;
+        }
+
+        .clock-wrapper::before {
+            content: "Tempus Fugit";
+            font-family: 'Italianno';
+            font-size: 1.5rem;
+            position: absolute;
+            z-index: 999;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70px);
+        }
+
+        .clock-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid var(--frost-white);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .6), inset 0 0 20px rgba(255, 255, 255, .4);
+            backdrop-filter: blur(6px);
+        }
+
+        .clock-face::before,
+        .clock-face::after {
+            content: "";
+            position: absolute;
+            top: .75%;
+            left: .75%;
+            width: 98%;
+            height: 98%;
+            border-radius: 50%;
+            border: 1px solid var(--frost-white);
+        }
+
+        .clock-face::after {
+            top: 4.7%;
+            left: 4.7%;
+            width: 90%;
+            height: 90%;
+            border-width: .5px;
+        }
+
+        .number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            margin-left: -25px;
+            margin-top: -25px;
+            font-family: 'Italianno', cursive;
+            font-weight: 400;
+            font-size: 3.5rem;
+            line-height: 1;
+            color: var(--frost-white);
+            text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .minute-mark,
+        .five-minute-mark {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .minute-mark::before,
+        .five-minute-mark::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 50%;
+            width: .5px;
+            height: 17px;
+            background: var(--frost-white);
+            transform: translateX(-50%);
+        }
+
+        .five-minute-mark::before {
+            width: 3px;
+            height: 22px;
+            background: var(--frost-white);
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
+        }
+
+        .hour-hand {
+            width: 6px;
+            height: 110px;
+            background: #f0f8ff;
+            margin-left: -5px;
+        }
+
+        .minute-hand {
+            width: 3px;
+            height: 160px;
+            background: #e3f2fd;
+            margin-left: -1px;
+        }
+
+        .second-hand {
+            width: 1.5px;
+            height: 175px;
+            background: #ff3366;
+            margin-left: -1.5px;
+            box-shadow: 0 0 12px rgba(255, 51, 102, 0.9);
+            transition: none;
+        }
+
+        .center-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            background: transparent;
+            border-radius: 50%;
+            border: 3px solid #f0f8ff;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 3px 15px rgba(240, 248, 255, .4), inset 0 0 10px rgba(240, 248, 255, .4);
+            z-index: 10;
+        }
+
+        #skills i,
+        #skills svg {
+            transition: all .2s ease;
+            transform: translateX(0px);
+        }
+
+        #skills i:hover,
+        #skills svg:hover {
+            color: #64b5f6;
+            transform: translateX(5px);
+            cursor: pointer;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 3rem;
+            backdrop-filter: blur(2px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        header::before,
+        header::after,
+        footer::before,
+        footer::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-top: none;
+            border-right: none;
+        }
+
+        header::before {
+            height: 100px;
+            border: 1px solid #f0f8ff;
+            border-bottom: none;
+            border-right: none;
+            top: 3.5rem;
+            left: 3rem;
+        }
+
+        header::after {
+            border: 1px solid #f0f8ff;
+            border-bottom: none;
+            border-left: none;
+            top: 3.5rem;
+            right: 3rem;
+        }
+
+        footer::before,
+        footer::after {
+            bottom: 3.5rem;
+            left: 3rem;
+            border: 1px solid #f0f8ff;
+            border-top: none;
+            border-right: none;
+        }
+
+        footer::after {
+            height: 100px;
+            right: 3rem;
+            left: initial;
+            border: 1px solid #f0f8ff;
+            border-top: none;
+            border-left: none;
+        }
+
+        .footer-links a {
+            color: #f0f8ff;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-right: 1rem;
+            font-size: 1rem;
+            font-weight: 200;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus-visible {
+            color: #90caf9;
+        }
+
+        .footer-links a:focus-visible {
+            outline: 2px solid #90caf9;
+            outline-offset: 4px;
+        }
+
+        .social-icons a {
+            color: #f0f8ff;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+        }
+
+        .social-icons a:hover,
+        .social-icons a:focus-visible {
+            color: #64b5f6;
+            transform: translateY(-6px);
+        }
+
+        .social-icons a:focus-visible {
+            outline: 2px solid #90caf9;
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 640px) {
+            .clock-wrapper {
+                width: 320px;
+                height: 320px;
+            }
+
+            .clock-wrapper::before {
+                font-size: 1rem;
+                transform: translate(-50%, -55px);
+            }
+
+            .center-dot {
+                width: 20px;
+                height: 20px;
+                border-width: 2px;
+            }
+
+            .number {
+                font-size: 2.5rem;
+            }
+
+            .minute-hand {
+                width: 2px;
+                height: 118px;
+            }
+
+            .second-hand {
+                width: 1px;
+                height: 127px;
+            }
+
+            .hour-hand {
+                width: 4.5px;
+                height: 80px;
+            }
+
+            .minute-mark::before {
+                height: 13px;
+            }
+
+            .five-minute-mark::before {
+                height: 17px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                padding: 30px;
+                text-align: center;
+            }
+
+            .footer-links a,
+            .social-icons a {
+                margin: 0 1rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Modal styles – 100% yours */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            background: rgba(15, 25, 40, 0.65);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 560px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 3rem 2.5rem 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            color: #f0f8ff;
+            animation: modalSlideUp 0.5s ease-out;
+        }
+
+        @keyframes modalSlideUp {
+            from {
+                transform: translateY(60px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.8rem;
+            font-size: 2.2rem;
+            color: #f0f8ff;
+            opacity: 0.6;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus-visible {
+            opacity: 1;
+            transform: scale(1.15);
+            outline: none;
+        }
+
+        .modal-close:focus-visible {
+            outline: 3px solid #90caf9;
+            outline-offset: 4px;
+        }
+
+        .modal h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--frost-white);
+        }
+
+        .modal p,
+        .modal ul {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .modal a {
+            color: #90caf9;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .modal-content {
+                width: 95%;
+                padding: 2.5rem 1.5rem 2rem;
+            }
+
+            .modal h2 {
+                font-size: 3.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div aria-live="polite" class="sr-only" id="bg-announce"></div>
+
+    <header>
+        <button id="refreshImage" aria-label="Refresh background image">Refresh Image</button>
+    </header>
+
+    <main id="main-content">
+        <section class="c-container">
+            <div class="clock-wrapper">
+                <div class="clock-face" id="clock" role="img" aria-label="Analog clock showing current time">
+                    <div class="hand hour-hand" id="hour" aria-hidden="true"></div>
+                    <div class="hand minute-hand" id="minute" aria-hidden="true"></div>
+                    <div class="hand second-hand" id="second" aria-hidden="true"></div>
+                    <div class="center-dot" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="h-container">
+            <h1>Kevin Gillispie</h1>
+            <h2>Full-Stack Web Developer | Cybersecurity</h2>
+            <hr style="width: 150px;margin: .75rem auto;">
+            <h3><span style="font-weight: 200;">New Site |</span> Coming Soon</h3>
+        </section>
+    </main>
+
+    <aside style="position:absolute;z-index:999;top:50%;left:4rem;transform:translateY(-50%);">
+        <div id="skills" style="display:flex;flex-direction:column;gap:1rem;font-size:1.5rem;text-align: center;">
+            <i class="fa-brands fa-js" aria-hidden="true" title="JavaScript"></i>
+            <i class="fa-brands fa-react" aria-hidden="true" title="React"></i>
+            <i class="fa-brands fa-wordpress" aria-hidden="true" title="WordPress"></i>
+            <i class="fa-brands fa-php" aria-hidden="true" title="PHP"></i>
+            <i class="fa-brands fa-python" aria-hidden="true" title="Python"></i>
+            <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="36"
+                style="margin: 0 -3px 0 -5px" aria-hidden="true" title="Node.js">
+                <path
+                    d="m85.3 76.1c-4.2 7.4-12.2 12.4-21.3 12.4-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c9.1 0 17.1 5 21.3 12.5l13-7.5c-6.8-11.9-19.6-20-34.3-20-21.8 0-39.5 17.7-39.5 39.5s17.7 39.5 39.5 39.5c14.6 0 27.4-8 34.2-19.8zm11.7-9.9.9-4.3h-4.2v-4.7h5.1l1.2-6.2h4.9l-1.2 6.1h3.8l1.2-6.1h4.8l-1.2 6.1h2.4v4.7h-3.3l-.9 4.3h4.2v4.7h-5.1l-1.2 6h-4.9l1.2-6h-3.8l-1.2 6h-4.8l1.2-6h-2.4v-4.7h3.3zm4.8 0h3.8l.9-4.3h-3.8z">
+                </path>
+            </svg>
+            <i class="fa-solid fa-server" aria-hidden="true" title="Servers"></i>
+            <i class="fa-solid fa-database" aria-hidden="true" title="Databases"></i>
+            <i class="fa-solid fa-network-wired" aria-hidden="true" title="Networking"></i>
+            <i class="fa-solid fa-wifi" aria-hidden="true" title="Wi-Fi"></i>
+            <i class="fa-brands fa-chrome" aria-hidden="true" title="Chrome"></i>
+            <i class="fa-brands fa-firefox" aria-hidden="true" title="Firefox"></i>
+        </div>
+    </aside>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#features">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="social-icons">
+            <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <!-- All your original scripts – only tiny a11y tweaks -->
+    <script>
+        const refreshBtn = document.getElementById('refreshImage');
+        const bgAnnounce = document.getElementById('bg-announce');
+
+        function setLoading(state) {
+            refreshBtn.style.opacity = state ? '0.6' : '1';
+            refreshBtn.style.pointerEvents = state ? 'none' : 'auto';
+            refreshBtn.textContent = state ? 'Loading...' : 'Refresh Image';
+        }
+
+        function changeBackground() {
+            setLoading(true);
+            const timestamp = Date.now();
+            const newUrl = `https://picsum.photos/1920/1080?blur=2&random=${timestamp}`;
+            const img = new Image();
+            img.onload = function () {
+                document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('${newUrl}')`;
+                void document.body.offsetWidth;
+                bgAnnounce.textContent = 'Background image refreshed';
+                setTimeout(() => bgAnnounce.textContent = '', 1000);
+                setLoading(false);
+            };
+            img.onerror = () => { console.error('Failed to load image'); setLoading(false); };
+            img.src = newUrl;
+        }
+
+        changeBackground();
+        refreshBtn.addEventListener('click', (e) => { e.preventDefault(); changeBackground(); });
+    </script>
+
+    <script>
+        const clock = document.getElementById('clock');
+        const hourHand = document.getElementById('hour');
+        const minuteHand = document.getElementById('minute');
+        const secondHand = document.getElementById('second');
+
+        function createNumbers() {
+            document.querySelectorAll('.number').forEach(el => el.remove());
+            const radius = window.innerWidth <= 640 ? -115 : -155;
+            for (let i = 1; i <= 12; i++) {
+                const num = document.createElement('div');
+                num.className = 'number';
+                num.textContent = i;
+                const angle = i * 30;
+                num.style.transform = `rotate(${angle}deg) translateY(${radius}px) rotate(-${angle}deg)`;
+                clock.appendChild(num);
+            }
+        }
+
+        createNumbers();
+        window.addEventListener('resize', createNumbers);
+
+        for (let i = 0; i < 60; i++) {
+            const mark = document.createElement('div');
+            mark.className = i % 5 === 0 ? 'five-minute-mark' : 'minute-mark';
+            mark.style.transform = `rotate(${i * 6}deg)`;
+            clock.appendChild(mark);
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const s = now.getSeconds() + now.getMilliseconds() / 1000;
+            const m = now.getMinutes() + s / 60;
+            const h = (now.getHours() % 12) + m / 60;
+
+            secondHand.style.transform = `rotate(${s * 6}deg) translate(0px, -11px)`;
+            minuteHand.style.transform = `rotate(${m * 6}deg) translate(0px, -11px)`;
+            hourHand.style.transform = `rotate(${h * 30}deg) translate(0px, -11px)`;
+        }
+
+        setInterval(updateClock, 50);
+        updateClock();
+    </script>
+
+    <!-- MODAL – 100% your original code + only 3 tiny a11y lines -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <span class="modal-close" tabindex="0" role="button" aria-label="Close dialog">×</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalBody = document.getElementById('modal-body');
+        const closeBtn = document.querySelector('.modal-close');
+
+        // YOUR ORIGINAL CONTENT – untouched
+        const modalContent = {
+            about: `
+            <h2 id="modal-title">Hello! <br>I'm <strong style="font-weight:800;">Kevin Gillispie</strong>.</h2>
+            <p>I'm a <strong>full-stack web developer</strong> in Los Angeles. I built the WordPress SEO plugin <strong><a href="https://schemascalpel.com/" target="_blank">Schema Scalpel</a></strong> and the anti-phishing browser extension <strong><a href="https://overphish.app" target="_blank">OverPhish</a></strong>. I’m <a href="https://cp.certmetrics.com/comptia/en/public/verify/credential/QGJMZNYCV2Q1CD6F" target="_blank">Network+</a> and <a href="https://www.coursera.org/account/accomplishments/specialization/2LTDUW8JSXZW" target="_blank">Google Cybersecurity</a> certified.</p><p>When I’m not battling bugs or <a href="https://codeandkeyboard.com" target="_blank">blogging</a> about tech news, you'll find me reading, writing, drawing, composing, traveling, and studying (human) languages.</p>
+        `,
+            features: `
+            <h2 id="modal-title">Portfolio</h2>
+            <ul class="actions stacked portfolio-links" style="width: 100%;">
+                <li><a href="https://github.com/kevingillispie" class="button" target="_blank">GitHub</a></li>
+                <li><a href="https://overphish.app/" class="button" target="_blank">OverPhish</a> (browser extension)</li>
+                <li><a href="https://schemascalpel.com/" class="button" target="_blank">Schema Scalpel</a> (WP plugin)</li>
+                <li><a href="https://codeandkeyboard.com" class="button" target="_blank">Code and Keyboard</a> (tech blog)</li>
+            </ul>
+        `,
+            contact: `
+            <h2 id="modal-title">Get In Touch</h2>
+            <p>Email: <a href="mailto:kevin@example.com">kevin@example.com</a></p>
+            <p>𝕏: <a href="https://x.com/kevinlgillispie" target="_blank">@kevinlgillispie</a></p>
+            <p>GitHub: <a href="https://github.com/kevingillispie" target="_blank">/kevingillispie</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/kevinlgillispie" target="_blank">/in/kevinlgillispie</a></p>
+            <p>Feel free to reach out — I love collaborating on interesting projects!</p>
+        `
+        };
+
+        document.querySelectorAll('.footer-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const id = link.getAttribute('href').substring(1);
+                modalBody.innerHTML = modalContent[id] || '<p>Content coming soon...</p>';
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        closeBtn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') closeModal(); });
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+    </script>
+</body>
+
+</html>
