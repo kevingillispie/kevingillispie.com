@@ -686,6 +686,8 @@
         const minuteHand = document.getElementById('minute');
         const secondHand = document.getElementById('second');
 
+        let currentSecond = -1; // to detect when the second actually changes
+
         function createNumbers() {
             document.querySelectorAll('.number').forEach(el => el.remove());
             const radius = window.innerWidth <= 640 ? -115 : -155;
@@ -702,6 +704,7 @@
         createNumbers();
         window.addEventListener('resize', createNumbers);
 
+        // Minute marks (unchanged)
         for (let i = 0; i < 60; i++) {
             const mark = document.createElement('div');
             mark.className = i % 5 === 0 ? 'five-minute-mark' : 'minute-mark';
@@ -711,16 +714,43 @@
 
         function updateClock() {
             const now = new Date();
-            const s = now.getSeconds() + now.getMilliseconds() / 1000;
-            const m = now.getMinutes() + s / 60;
+            const s = now.getSeconds();
+            const ms = now.getMilliseconds();
+            const m = now.getMinutes() + (s + ms / 1000) / 60;
             const h = (now.getHours() % 12) + m / 60;
 
-            secondHand.style.transform = `rotate(${s * 6}deg) translate(0px, -11px)`;
+            // Smooth hour & minute hands
+            minuteHand.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            hourHand.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
             minuteHand.style.transform = `rotate(${m * 6}deg) translate(0px, -11px)`;
             hourHand.style.transform = `rotate(${h * 30}deg) translate(0px, -11px)`;
+
+            // === Mechanical "tick" for seconds ===
+            if (s !== currentSecond) {
+                // New second has started → trigger the tick animation
+                currentSecond = s;
+
+                // Remove any previous animation
+                secondHand.style.transition = 'none';
+                secondHand.style.transform = `rotate(${s * 6}deg) translate(0px, -11px)`;
+
+                // Force reflow so the next transition is respected
+                void secondHand.offsetWidth;
+
+                // Add the "hack" (tiny bounce backward) then snap forward
+                // This mimics the real mechanical escapement
+                secondHand.style.transition = 'transform 0.08s cubic-bezier(0.1, 0.7, 0.1, 1)';
+                secondHand.style.transform = `rotate(${s * 6 - 5}deg) translate(0px, -11px)`;
+
+                setTimeout(() => {
+                    secondHand.style.transition = 'transform 0.12s cubic-bezier(0.25, 0.9, 0.3, 1)';
+                    secondHand.style.transform = `rotate(${s * 6}deg) translate(0px, -11px)`;
+                }, 20);
+            }
         }
 
-        setInterval(updateClock, 50);
+        // Run as fast as possible for perfect tick timing
+        setInterval(updateClock, 16);
         updateClock();
     </script>
 
