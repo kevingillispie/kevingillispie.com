@@ -428,12 +428,17 @@
             outline-offset: 4px;
         }
 
+        @media screen and (max-height: 887px) {
+            aside {
+                display: none;
+            }
+        }
+
         @media (max-width: 640px) {
             #refreshImage {
-                position: absolute;
-                top: 560px;
-                left: 50%;
                 transform: translate(-50%, 0);
+                left: 50%;
+                position: absolute;
             }
 
             .clock-wrapper {
