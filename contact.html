@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Contact – Kevin Gillispie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH"></script>
+    <style>
+        /* Same minimal styling as before */
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .hp {
+            position: absolute;
+            left: -5000px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Contact Me</h1>
+
+    <div id="message"></div>
+
+    <form id="contact-form">
+        <label>Name *
+            <input type="text" name="name" required>
+        </label>
+
+        <label>Email *
+            <input type="email" name="email" required>
+        </label>
+
+        <label>Subject (optional)
+            <input type="text" name="subject">
+        </label>
+
+        <label>Message *
+            <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <!-- Honeypot -->
+        <div class="hp">
+            <label>Leave this empty: <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <button type="submit">Send Message</button>
+        <input type="hidden" name="g-recaptcha-response" id="recaptcha-token">
+    </form>
+
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH', { action: 'contact' }).then(function (token) {
+                document.getElementById('recaptcha-token').value = token;
+            });
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                const msg = document.getElementById('message');
+                if (response.ok) {
+                    msg.innerHTML = `<p class="success">Thank you! I'll get back to you soon.</p>`;
+                    e.target.reset();
+                } else {
+                    throw new Error(result.error || 'Something went wrong');
+                }
+            } catch (err) {
+                document.getElementById('message').innerHTML = `<p class="error">${err.message}</p>`;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
