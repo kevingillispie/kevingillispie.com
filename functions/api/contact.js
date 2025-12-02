@@ -32,8 +32,6 @@ export async function onRequestPost({ request, env }) {
             return new Response(JSON.stringify({ error: 'Invalid input' }), { status: 400 });
         }
 
-        // ... (keep all your existing validation, reCAPTCHA, honeypot code)
-
         // EmailJS send (after validation)
         const emailjsPayload = {
             service_id: env.EMAILJS_SERVICE_ID,
@@ -50,7 +48,10 @@ export async function onRequestPost({ request, env }) {
         const emailRes = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(emailjsPayload),
+            body: JSON.stringify({
+                ...emailjsPayload,
+                accessToken: env.EMAILJS_PRIVATE_KEY  // Add this env var (secret, server-only)
+            }),
         });
 
         if (!emailRes.ok) {
