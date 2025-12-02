@@ -32,27 +32,30 @@ export async function onRequestPost({ request, env }) {
             return new Response(JSON.stringify({ error: 'Invalid input' }), { status: 400 });
         }
 
-        // ───── Mailchannels magic (no SMTP credentials!) ─────
-        const mailchannelsPayload = {
-            personalizations: [{ to: [{ email: TO_EMAIL }] }],
-            from: { email: "noreply@kevingillispie.com", name: "Website Contact Form" },
-            reply_to: { email, name: name },
-            subject: subject?.trim() || "New message from your website",
-            content: [{
-                type: "text/plain",
-                value: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-            }],
+        // ... (keep all your existing validation, reCAPTCHA, honeypot code)
+
+        // EmailJS send (after validation)
+        const emailjsPayload = {
+            service_id: env.EMAILJS_SERVICE_ID,
+            template_id: env.EMAILJS_TEMPLATE_ID,
+            user_id: env.EMAILJS_PUBLIC_KEY,
+            template_params: {
+                name: name.trim(),
+                email,
+                subject: subject?.trim() || "New message from your website",
+                message: message.trim(),
+            },
         };
 
-        const mailRes = await fetch("https://api.mailchannels.net/tx/v1/send", {
+        const emailRes = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
             method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify(mailchannelsPayload),
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(emailjsPayload),
         });
 
-        if (!mailRes.ok) {
-            const text = await mailRes.text();
-            console.error("Mailchannels error:", text);
+        if (!emailRes.ok) {
+            const text = await emailRes.text();
+            console.error("EmailJS error:", text);
             return new Response(JSON.stringify({ error: "Failed to send email" }), { status: 500 });
         }
 
