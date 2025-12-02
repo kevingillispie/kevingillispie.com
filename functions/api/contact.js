@@ -37,10 +37,11 @@ export async function onRequestPost({ request, env }) {
             service_id: env.EMAILJS_SERVICE_ID,
             template_id: env.EMAILJS_TEMPLATE_ID,
             user_id: env.EMAILJS_PUBLIC_KEY,
+            accessToken: env.EMAILJS_PRIVATE_KEY,
             template_params: {
                 name: name.trim(),
-                email,
-                subject: subject?.trim() || "New message from your website",
+                email: email,
+                subject: subject?.trim() || "(no subject)",
                 message: message.trim(),
             },
         };
@@ -49,8 +50,7 @@ export async function onRequestPost({ request, env }) {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                ...emailjsPayload,
-                accessToken: env.EMAILJS_PRIVATE_KEY  // Add this env var (secret, server-only)
+                ...emailjsPayload
             }),
         });
 
