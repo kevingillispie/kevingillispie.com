@@ -3,7 +3,7 @@
     'use strict';
 
     // === CONFIG ===
-    const BACKGROUND_URL = 'https://picsum.photos/1920/1080?blur=2&random=';
+    const BACKGROUND_URL = 'https://picsum.photos/1920/1080?random=';
     const CLOCK_UPDATE_INTERVAL = 16; // ~60fps for perfect mechanical tick
     const RESIZE_DEBOUNCE = 150; // ms
 

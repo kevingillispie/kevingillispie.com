@@ -74,11 +74,11 @@ body {
     justify-content: space-between;
     overflow: hidden;
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.65)), to(rgba(0, 0, 0, 0.75))),
-        url('https://picsum.photos/1920/1080?blur=2&random=1');
+        url('https://picsum.photos/1920/1080?random=1');
     background-image: -o-linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)),
-        url('https://picsum.photos/1920/1080?blur=2&random=1');
+        url('https://picsum.photos/1920/1080?random=1');
     background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)),
-        url('https://picsum.photos/1920/1080?blur=2&random=1');
+        url('https://picsum.photos/1920/1080?random=1');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
