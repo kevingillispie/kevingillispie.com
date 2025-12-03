@@ -1,38 +1,56 @@
-// functions/api/contact.ts   (or .js)
+// functions/api/contact.js
 export async function onRequestPost({ request, env }) {
     const { RECAPTCHA_SECRET, TO_EMAIL } = env;
 
     try {
         const body = await request.json();
-        const { name, email, subject, message, 'g-recaptcha-response': token, website } = body;
+        const {
+            name, email, subject, message,
+            'g-recaptcha-response': token,
+            phone, confirm_email,
+            timestamp
+        } = body;
 
-        // Honeypot
-        if (website) {
-            return new Response(JSON.stringify({ error: 'Bot detected' }), { status: 400 });
+        // === 1. HONEYPOT CHECK (primary + secondary) ===
+        if (phone || confirm_email) {
+            // Silent fail for bots (don't tell them why)
+            return new Response(JSON.stringify({ error: 'Invalid request' }), { status: 400 });
         }
 
-        // reCAPTCHA v3 verification
+        // === 2. TIME CHECK (humans don't fill forms in <4 seconds) ===
+        if (timestamp) {
+            const submittedAt = Date.now();
+            const formCreatedAt = Number(timestamp);
+            const timeTaken = submittedAt - formCreatedAt;
+
+            // Too fast OR unrealistically slow (tab open for hours)
+            if (timeTaken < 6000 || timeTaken > 300000) {
+                return new Response(JSON.stringify({ error: 'Invalid submission time' }), { status: 400 });
+            }
+        }
+
+        // === 3. reCAPTCHA v3 ===
         const verify = await fetch('https://www.google.com/recaptcha/api/siteverify', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams({
                 secret: RECAPTCHA_SECRET,
-                response: token,
+                response: token || '',
                 remoteip: request.headers.get('CF-Connecting-IP') ?? '',
             }),
         });
         const captcha = await verify.json();
 
-        if (!captcha.success || captcha.score < 0.5) {
-            return new Response(JSON.stringify({ error: 'reCAPTCHA failed' }), { status: 400 });
+        if (!captcha.success || (captcha.score ?? 0) < 0.5) {
+            return new Response(JSON.stringify({ error: 'Verification failed' }), { status: 400 });
         }
 
-        // Basic validation
-        if (!name?.trim() || !email?.includes('@') || !message?.trim() || message.length < 10) {
+        // === 4. Basic validation ===
+        if (!name?.trim() || !email?.includes('@') || !message?.trim() || message.trim().length < 10) {
             return new Response(JSON.stringify({ error: 'Invalid input' }), { status: 400 });
         }
 
-        // EmailJS send (after validation)
+        // === 5. Send via EmailJS (unchanged) ===
         const emailjsPayload = {
             service_id: env.EMAILJS_SERVICE_ID,
             template_id: env.EMAILJS_TEMPLATE_ID,
@@ -64,6 +82,6 @@ export async function onRequestPost({ request, env }) {
 
     } catch (err) {
         console.error(err);
-        return new Response(JSON.stringify({ error: "Server error" }), { status: 500 });
+        return new Response(JSON.stringify({ error: 'Server error' }), { status: 500 });
     }
 }

@@ -3,94 +3,343 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Contact – Kevin Gillispie</title>
+    <title>Contact | Kevin Gillispie — Full-Stack & Cybersecurity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://www.google.com/recaptcha/api.js?render=6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH"></script>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
-        /* Same minimal styling as before */
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --primary-glow: #0ea5e9;
+            --accent: #00d4ff;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(15, 25, 40, 0.75);
+            --border: rgba(14, 165, 233, 0.25);
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Dark mode (default) */
         body {
-            font-family: system-ui, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--text);
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem 1rem;
+            display: grid;
+            place-items: center;
+        }
+
+        main {
+            width: 100%;
+        }
+
+        .theme-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: #f0f8ff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            border-radius: 0.75rem;
+            padding: 0.5rem;
+            width: 44px;
+            height: 44px;
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .theme-btn:hover {
+            background: rgba(14, 165, 233, 0.15);
+            border-color: var(--primary);
+        }
+
+        .inactive {
+            display: none;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            width: 100%;
+            max-width: 540px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 200;
+            background: linear-gradient(90deg, #0ea5e9, #00d4ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 0 0 2.5rem;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        form {
+            margin: 0 auto;
             max-width: 600px;
-            margin: 4rem auto;
-            padding: 0 1rem;
         }
 
         label {
             display: block;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         input,
         textarea {
             width: 100%;
-            padding: 0.5rem;
-            margin-top: 0.3rem;
+            padding: 0.9rem 1rem;
+            margin-top: 0.5rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid #334155;
+            border-radius: 0.75rem;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.25s;
         }
 
-        button {
-            margin-top: 1.5rem;
-            padding: 0.8rem 1.5rem;
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.25);
+            background: rgba(15, 23, 42, 0.8);
         }
 
-        .success {
-            color: green;
-            font-weight: bold;
+        button#submit-btn {
+            margin-top: 2.5rem;
+            width: 100%;
+            padding: 1.1rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 100;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .error {
-            color: red;
+        button#submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.4);
         }
 
-        .hp {
-            position: absolute;
-            left: -5000px;
+        button#submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .hp,
+        .hp * {
+            position: absolute !important;
+            left: -99999px !important;
+            top: -99999px !important;
+            width: 0 !important;
+            height: 0 !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            visibility: hidden !important;
+            overflow: hidden !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            z-index: -1 !important;
+            speak: none !important;
+        }
+
+        /* Prevent screen readers from ever seeing it */
+        .hp[aria-hidden="true"] {
+            display: none !important;
+        }
+
+        .security-container {
+            text-align: center;
+            margin: 3rem auto 0;
+            max-width: 540px;
+            padding: 1.25rem;
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            border-radius: 1rem;
+            font-size: 0.94rem;
+        }
+
+        .security-container p {
+            margin: 0;
+            color: #7dd3fc;
+            font-weight: 500;
+        }
+
+        /* Light mode overrides */
+        body.light {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        body.light .theme-btn {
+            color: #1e293b;
+        }
+
+        body.light .card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        body.light input,
+        body.light textarea {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            color: #1e293b;
+        }
+
+        body.light .security-container {
+            background: rgba(14, 165, 233, 0.08);
+            border-color: rgba(14, 165, 233, 0.25);
+        }
+
+        @media screen and (max-width:395px) {
+            .theme-btn {
+                position: initial;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Contact Me</h1>
+    <button class="theme-btn" onclick="dayForNight(this)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="night"
+            viewBox="0 0 16 16">
+            <path
+                d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286" />
+            <path
+                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="day inactive"
+            viewBox="0 0 16 16">
+            <path
+                d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
+        </svg>
+    </button>
 
-    <div id="message"></div>
+    <main>
+        <h1>Contact Me</h1>
 
-    <form id="contact-form">
-        <label>Name *
-            <input type="text" name="name" required>
-        </label>
+        <div id="message"></div>
 
-        <label>Email *
-            <input type="email" name="email" required>
-        </label>
+        <form id="contact-form" class="contact-form">
+            <label>
+                <input type="text" name="name" placeholder="Name*" required>
+            </label>
 
-        <label>Subject (optional)
-            <input type="text" name="subject">
-        </label>
+            <label>
+                <input type="email" name="email" placeholder="Email*" required>
+            </label>
 
-        <label>Message *
-            <textarea name="message" rows="6" required></textarea>
-        </label>
+            <label style="opacity:.3; pointer-events:none;">
+                <input type="text" name="phone_visible" disabled placeholder="Phone">
+            </label>
 
-        <!-- Honeypot -->
-        <div class="hp">
-            <label>Leave this empty: <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-        </div>
+            <div class="hp" aria-hidden="true"
+                style="position:absolute; left:-9999px; top:-9999px; height:0; width:0; overflow:hidden;">
+                <label>
+                    <input type="text" name="phone" autocomplete="off" tabindex="-1" value="" placeholder="Leave blank"
+                        aria-hidden="true"
+                        style="position:absolute !important; left:-9999px !important; opacity:0 !important; width:1px !important; height:1px !important; border:none !important; padding:0 !important; margin:0 !important;" />
+                </label>
 
-        <button type="submit">Send Message</button>
-        <input type="hidden" name="g-recaptcha-response" id="recaptcha-token">
-    </form>
+                <label>
+                    <input type="text" name="confirm_email" autocomplete="off" tabindex="-1" value=""
+                        style="position:absolute !important; left:-9999px !important; opacity:0 !important; width:1px !important; height:1px !important;" />
+                </label>
+            </div>
 
+            <label>
+                <input type="text" name="subject" placeholder="Subject">
+            </label>
+
+            <label>
+                <textarea name="message" rows="6" placeholder="Message*" required></textarea>
+            </label>
+
+            <input type="hidden" name="timestamp" id="form-timestamp" value="">
+
+            <button type="submit" id="submit-btn">
+                <span id="btn-text"><strong>Send</strong> Message</span>
+                <span id="btn-loading" style="display:none;">Sending…</span>
+            </button>
+
+            <input type="hidden" name="g-recaptcha-response" id="recaptcha-token">
+        </form>
+    </main>
+
+    <aside class="security-container">
+        <p>
+            <strong>Protected by:</strong> reCAPTCHA v3 • Honeypot • Rate limiting • CSP • Input sanitization •
+            HTTPS-only
+        </p>
+    </aside>
     <script>
+        // reCAPTCHA v3 token
         grecaptcha.ready(function () {
             grecaptcha.execute('6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH', { action: 'contact' }).then(function (token) {
                 document.getElementById('recaptcha-token').value = token;
             });
         });
 
+        // Button elements for loading state
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoading = document.getElementById('btn-loading');
+
+        // Set timestamp when page loads (or when form becomes visible)
+        document.addEventListener('DOMContentLoaded', () => {
+            const ts = Date.now();
+            const field = document.getElementById('form-timestamp');
+            if (field) field.value = ts;
+        });
+
         document.getElementById('contact-form').addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            // Refresh token
+            const token = await grecaptcha.execute('6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH', { action: 'contact' });
+            document.getElementById('recaptcha-token').value = token;
+
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData);
+
+            const msg = document.getElementById('message');
+            msg.innerHTML = '';
 
             try {
                 const response = await fetch('/api/contact', {
@@ -98,20 +347,36 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
+
                 const result = await response.json();
-                const msg = document.getElementById('message');
+
                 if (response.ok) {
                     msg.innerHTML = `<p class="success">Thank you! I'll get back to you soon.</p>`;
                     e.target.reset();
+                    if (typeof confetti === 'function') confetti();
                 } else {
                     throw new Error(result.error || 'Something went wrong');
                 }
+
             } catch (err) {
-                document.getElementById('message').innerHTML = `<p class="error">${err.message}</p>`;
+                msg.innerHTML = `<p class="error">${err.message}</p>`;
+
+            } finally {
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
             }
         });
     </script>
-
+    <script>
+        function dayForNight(el) {
+            document.body.classList.toggle('light');
+            [...el.children].forEach(kid => {
+                kid.classList.toggle('inactive');
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 </body>
 
 </html>
