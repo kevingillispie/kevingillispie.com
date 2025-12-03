@@ -14,6 +14,10 @@
     box-sizing: border-box;
 }
 
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
 /* Dark mode (default) */
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
