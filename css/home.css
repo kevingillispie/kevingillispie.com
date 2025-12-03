@@ -358,6 +358,7 @@ aside {
     -webkit-transform: translateX(0px);
     -ms-transform: translateX(0px);
     transform: translateX(0px);
+    width: 34px;
 }
 
 #skills i:hover,
@@ -367,6 +368,42 @@ aside {
     -ms-transform: translateX(5px);
     transform: translateX(5px);
     cursor: pointer;
+}
+
+/* The sliding tooltip */
+#skills>*::after {
+    content: attr(data-label);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    color: #e2e8f0;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 200;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    backdrop-filter: blur(8px);
+}
+
+#skills>div::after {
+    transform: translate(-100%, -110%);
+}
+
+/* Hover state — slide out to the right */
+#skills>*:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(20px, -50%);
+}
+
+#skills>div:hover::after {
+    transform: translate(20px, -110%);
 }
 
 footer {
