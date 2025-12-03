@@ -86,13 +86,17 @@
         <div class="footer-links">
             <a href="#about">About</a>
             <a href="#features">Portfolio</a>
-            <a href="#contact">Contact</a>
+            <a href="/contact" data-type="link">Contact</a>
         </div>
         <div class="social-icons">
-            <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/kevinlgillispie" aria-label="LinkedIn" target="_blank"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://x.com/kevinlgillispie" aria-label="X (Twitter)" target="_blank"><i
+                    class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/kevinlgillispie" aria-label="Instagram" target="_blank"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://github.com/kevingillispie" aria-label="GitHub" target="_blank"><i
+                    class="fab fa-github"></i></a>
         </div>
     </footer>
 
@@ -240,6 +244,7 @@
         };
 
         document.querySelectorAll('.footer-links a').forEach(link => {
+            if (link.dataset.type === 'link') { return; }
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const id = link.getAttribute('href').substring(1);

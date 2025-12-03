@@ -76,11 +76,11 @@ body {
 
 .home-btn svg {
     transition: transform 0.2s;
-    transform: translateY(-1px);
+    transform: translate(0, -1px) rotate(0turn);
 }
 
 .home-btn:hover svg {
-    transform: translateX(-4px);
+    transform: translate(-4px, -2px) rotate(-.05turn);
 }
 
 main {
@@ -89,9 +89,6 @@ main {
 }
 
 .theme-btn {
-    /* position: absolute;
-            top: 1.5rem;
-            right: 1.5rem; */
     color: #f0f8ff;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(14, 165, 233, 0.3);
