@@ -91,7 +91,7 @@
 
         // Smooth continuous motion for hour/minute
         minuteHand.style.transform = `rotate(${m * 6}deg) translate(0, -11px)`;
-        hourHand.style.transform = `rotate(${h * 30}deg) translate(0, -11px)`;
+        hourHand.style.transform = `rotate(${h * 30}deg) translate(0, -10px)`;
 
         // Mechanical tick only on second change
         if (s !== currentSecond) {
