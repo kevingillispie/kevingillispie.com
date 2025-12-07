@@ -120,7 +120,8 @@
         features: `<h2 id="modal-title">Portfolio</h2>
       <ul class="actions stacked portfolio-links">
         <li><a href="https://github.com/kevingillispie" class="button" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://overphish.app/" class="button" target="_blank" rel="noopener">OverPhish</a> (browser extension)</li>
+        <li><a href="https://overphish.app/" class="button" target="_blank" rel="noopener">OverPhish</a> (website)</li>
+        <li><a href="https://chromewebstore.google.com/detail/overphish-phishing-domain/mapbfceckmkfnmecoadhfehmdpoomjoa" class="button" target="_blank" rel="noopener">OverPhish</a> (Chrome Web Store)</li>
         <li><a href="https://schemascalpel.com/" class="button" target="_blank" rel="noopener">Schema Scalpel</a> (WP plugin)</li>
         <li><a href="https://codeandkeyboard.com" class="button" target="_blank" rel="noopener">Code and Keyboard</a> (tech blog)</li>
       </ul>`
