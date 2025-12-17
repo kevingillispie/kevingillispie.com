@@ -1,0 +1,54 @@
+# Block common AI training crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: img2dataset
+Disallow: /
+
+# Allow AI search and user-triggered agents (e.g., for RAG or live queries)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Allow all other crawlers (e.g., search engines), but disallow API endpoint
+User-agent: *
+Disallow: /api/
+Allow: /
