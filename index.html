@@ -48,69 +48,95 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/home.css">
 
-    <!-- PERFECT JSON-LD (2025 best practices) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "WebSite",
-          "@id": "https://kevingillispie.com/#website",
-          "url": "https://kevingillispie.com",
-          "name": "Kevin Gillispie",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://kevingillispie.com/?s={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://kevingillispie.com/#webpage",
-          "url": "https://kevingillispie.com",
-          "name": "Kevin Gillispie | Cybersecurity & Web Development"
-        },
-        {
-          "@type": "Person",
-          "@id": "https://kevingillispie.com/#person",
-          "name": "Kevin Gillispie",
-          "givenName": "Kevin",
-          "familyName": "Gillispie",
-          "jobTitle": "Full-Stack Web Developer & Cybersecurity Analyst",
-          "url": "https://kevingillispie.com",
-          "image": "https://kevingillispie.com/kevin-photo.jpg",
-          "description": "Cybersecurity analyst. CompTIA Security+ (2025), Google Cybersecurity certified (2024), Network+ certified. Creator of OverPhish anti-phishing Chrome extension.",
-          "sameAs": [
-            "https://linkedin.com/in/kevinlgillispie",
-            "https://github.com/kevingillispie",
-            "https://x.com/kevinlgillispie",
-            "https://instagram.com/kevinlgillispie"
-          ],
-          "alumniOf": {
-            "@type": "CollegeOrUniversity",
-            "name": "Virginia Tech",
-            "url": "https://vt.edu"
-          },
-          "memberOf": {
-            "@type": "EducationalOrganization",
-            "name": "The Master's Seminary",
-            "url": "https://tms.edu"
-          },
-          "hasCredential": [
-            {
-              "@type": "EducationalOccupationalCredential",
-              "name": "CompTIA Network+",
-              "url": "https://cp.certmetrics.com/comptia/en/public/verify/credential/QGJMZNYCV2Q1CD6F",
-              "dateCreated": "2005"
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "name": "Google Cybersecurity Professional Certificate",
-              "url": "https://www.coursera.org/account/accomplishments/specialization/2LTDUW8JSXZW",
-              "dateCreated": "2024"
+            "@type": "WebSite",
+            "@id": "https://kevingillispie.com/#website",
+            "url": "https://kevingillispie.com",
+            "name": "Kevin Gillispie",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://kevingillispie.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
             }
-          ],
-          "knowsAbout": ["JavaScript","React","Node.js","TypeScript","Python","WordPress","PHP","Cybersecurity","Penetration Testing","OWASP","Zero Trust", "AI"]
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://kevingillispie.com/#webpage",
+            "url": "https://kevingillispie.com",
+            "name": "Kevin Gillispie | Cybersecurity & Full-Stack Web Development"
+        },
+        {
+            "@type": "Person",
+            "@id": "https://kevingillispie.com/#person",
+            "name": "Kevin Gillispie",
+            "givenName": "Kevin",
+            "familyName": "Gillispie",
+            "jobTitle": "Full-Stack Web Developer & Cybersecurity Analyst",
+            "url": "https://kevingillispie.com",
+            "image": "https://kevingillispie.com/kevin-photo.jpg",
+            "description": "Cybersecurity analyst. CompTIA Security+ (2025), Google Cybersecurity certified (2024), Network+ certified. Creator of OverPhish anti-phishing Chrome extension.",
+            "sameAs": [
+                "https://linkedin.com/in/kevinlgillispie",
+                "https://github.com/kevingillispie",
+                "https://x.com/kevinlgillispie",
+                "https://instagram.com/kevinlgillispie"
+            ],
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Virginia Tech",
+                "url": "https://vt.edu"
+            },
+            "memberOf": {
+                "@type": "EducationalOrganization",
+                "name": "The Master's Seminary",
+                "url": "https://tms.edu"
+            },
+            "hasCredential": [
+                {
+                    "@type": "EducationalOccupationalCredential",
+                    "name": "CompTIA Security+",
+                    "credentialCategory": "Certification",
+                    "recognizedBy": {
+                        "@type": "Organization",
+                        "name": "CompTIA",
+                        "url": "https://www.comptia.org/certifications/security"
+                    },
+                    "dateCreated": "2002",
+                    "url": "https://cp.certmetrics.com/comptia/en/public/verify/credential/9f1afe009a484339830112cee2b518df",
+                    "description": "Validates core cybersecurity skills including threats, attacks, vulnerabilities, risk management, architecture, operations, and incident response."
+                },
+                {
+                    "@type": "EducationalOccupationalCredential",
+                    "name": "CompTIA Network+",
+                    "credentialCategory": "Certification",
+                    "recognizedBy": {
+                        "@type": "Organization",
+                        "name": "CompTIA",
+                        "url": "https://www.comptia.org/certifications/network"
+                    },
+                    "dateCreated": "2005",
+                    "url": "https://cp.certmetrics.com/comptia/en/public/verify/credential/QGJMZNYCV2Q1CD6F",
+                    "description": "Validated foundational networking knowledge including protocols, infrastructure, troubleshooting, and security basics."
+                },
+                {
+                    "@type": "EducationalOccupationalCredential",
+                    "name": "Google Cybersecurity Professional Certificate",
+                    "credentialCategory": "Certificate",
+                    "recognizedBy": {
+                        "@type": "Organization",
+                        "name": "Google",
+                        "url": "https://grow.google/certificates/cybersecurity/"
+                    },
+                    "dateCreated": "2024",
+                    "url": "https://www.coursera.org/account/accomplishments/specialization/2LTDUW8JSXZW",
+                    "description": "Comprehensive 8-course program covering security models, incident response, Python for security, SIEM tools, and SQL."
+                }
+            ],
+            "knowsAbout": ["JavaScript","React","Node.js","TypeScript","Python","WordPress","PHP","Cybersecurity","Penetration Testing","OWASP","Zero Trust", "AI"]
         }
       ]
     }
