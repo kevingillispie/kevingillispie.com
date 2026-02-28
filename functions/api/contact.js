@@ -1,9 +1,9 @@
 export async function onRequestPost({ request, env }) {
-    const { RECAPTCHA_SECRET, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY, EMAILJS_PRIVATE_KEY } = env;
+    const { RECAPTCHA_SECRET, DESTINATION_EMAIL } = env;
 
     try {
         const body = await request.json();
-        const { name, email, subject, message, 'g-recaptcha-response': token, phone, confirm_email, timestamp } = body;
+        const { name, email, subject, message, 'g-recaptcha-response': token, timestamp } = body;
 
         // LOG 1: Check if request arrived
         console.log("Request received for:", email);
@@ -41,34 +41,34 @@ export async function onRequestPost({ request, env }) {
 
         // 4. Send via EmailJS
         console.log("reCAPTCHA passed. Contacting EmailJS...");
-        const emailRes = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        const emailRes = await fetch("https://api.mailchannels.net/tx/v1/send", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                service_id: EMAILJS_SERVICE_ID,
-                template_id: EMAILJS_TEMPLATE_ID,
-                user_id: EMAILJS_PUBLIC_KEY,
-                accessToken: EMAILJS_PRIVATE_KEY,
-                template_params: {
-                    name: name.trim(),
-                    email: email,
-                    subject: subject?.trim() || "(no subject)",
-                    message: message.trim(),
+                personalizations: [{
+                    to: [{ email: DESTINATION_EMAIL, name: "Kevin Gillispie" }],
+                }],
+                from: {
+                    email: `contact@kevingillispie.com`,
+                    name: "Portfolio Contact Form",
                 },
+                subject: `[Contact Form] ${subject || "No Subject"}`,
+                content: [{
+                    type: "text/plain",
+                    value: `From: ${name} (${email})\n\nMessage:\n${message}`,
+                }],
             }),
         });
 
         if (!emailRes.ok) {
             const errorText = await emailRes.text();
-            console.error("EmailJS Error:", errorText);
-            return new Response(JSON.stringify({ error: "Email provider rejected the request" }), { status: 502 });
+            console.error("MailChannels Error:", errorText);
+            return new Response(JSON.stringify({ error: "Mail server error" }), { status: 502 });
         }
 
-        console.log("Email sent successfully!");
         return new Response(JSON.stringify({ success: true }), { status: 200 });
 
     } catch (err) {
-        console.error("Critical Server Error:", err.stack);
-        return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
+        return new Response(JSON.stringify({ error: 'Server error' }), { status: 500 });
     }
 }
