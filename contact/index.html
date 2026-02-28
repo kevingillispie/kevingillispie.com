@@ -291,6 +291,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
+                console.log(res);
 
                 let result = {};
                 const contentType = res.headers.get("content-type");
@@ -306,7 +307,7 @@
                 }
             } catch (err) {
                 const msg = document.getElementById('form-status');
-                msg.innerHTML = `<p class="error">${err.message}</p>`;
+                msg.innerHTML = `<p class="error"><code>${err.message}</code></p>`;
                 submitBtn.disabled = false;
                 btnText.style.display = 'inline';
                 btnLoading.style.display = 'none';
