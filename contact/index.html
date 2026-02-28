@@ -39,8 +39,8 @@
     <link rel="stylesheet" href="/css/contact.css">
 
     <!-- reCAPTCHA v3 -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH" async
-        defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH"
+        data-cfasync="false" async defer></script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -242,11 +242,20 @@
 
     <!-- Scripts (same as before, just cleaned up) -->
     <script>
-        grecaptcha.ready(() => {
-            grecaptcha.execute('6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH', { action: 'contact' }).then(token => {
-                document.getElementById('recaptcha-token').value = token;
-            });
-        });
+        // Check if grecaptcha actually loaded before calling it
+        function initRecaptcha() {
+            if (typeof grecaptcha !== 'undefined') {
+                grecaptcha.ready(() => {
+                    grecaptcha.execute('6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH', { action: 'contact' }).then(token => {
+                        const tokenInput = document.getElementById('recaptcha-token');
+                        if (tokenInput) tokenInput.value = token;
+                    });
+                });
+            } else {
+                console.warn("reCAPTCHA blocked by browser/VPN. Submission may fail backend verification.");
+            }
+        }
+        window.addEventListener('load', initRecaptcha);
 
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('form-timestamp').value = Date.now();
