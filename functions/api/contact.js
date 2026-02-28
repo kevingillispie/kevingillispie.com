@@ -77,6 +77,14 @@ export async function onRequestPost({ request, env }) {
         return new Response(JSON.stringify({ success: true }), { status: 200 });
 
     } catch (err) {
-        return new Response(JSON.stringify({ error: 'Server error' }), { status: 500 });
+        console.error("Function Crash:", err.message);
+
+        return new Response(JSON.stringify({
+            error: "Internal Server Error",
+            details: err.message
+        }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" }
+        });
     }
 }
