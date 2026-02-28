@@ -57,7 +57,7 @@ export async function onRequestPost({ request, env }) {
                     to: [{ email: DESTINATION_EMAIL, name: "Kevin Gillispie" }],
                 }],
                 from: {
-                    email: `contact@kevingillispie.com`,
+                    email: `no-reply@kevingillispie.com`,
                     name: "Portfolio Contact Form",
                 },
                 subject: `[Contact Form] ${subject || "No Subject"}`,
