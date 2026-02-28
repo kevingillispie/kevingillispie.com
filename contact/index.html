@@ -293,15 +293,21 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
+
                 const result = await res.json();
 
                 if (res.ok) {
-                    msg.innerHTML = `<p class="success">Thank you! I'll get back to you soon.</p>`;
-                    e.target.reset();
-                    if (typeof confetti === 'function') confetti();
-                } else throw new Error(result.error || 'Failed to send');
+                    // Instead of just innerHTML, redirect the user
+                    window.location.href = '/contact/success';
+                } else {
+                    throw new Error(result.error || 'Failed to send');
+                }
             } catch (err) {
+                const msg = document.getElementById('form-status');
                 msg.innerHTML = `<p class="error">${err.message}</p>`;
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
             } finally {
                 submitBtn.disabled = false;
                 btnText.style.display = 'inline';
