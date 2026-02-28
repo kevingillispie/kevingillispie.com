@@ -240,9 +240,7 @@
         </p>
     </footer>
 
-    <!-- Scripts (same as before, just cleaned up) -->
     <script>
-        // Check if grecaptcha actually loaded before calling it
         function initRecaptcha() {
             if (typeof grecaptcha !== 'undefined') {
                 grecaptcha.ready(() => {
@@ -294,13 +292,17 @@
                     body: JSON.stringify(data)
                 });
 
-                const result = await res.json();
+                let result = {};
+                const contentType = res.headers.get("content-type");
+
+                if (contentType && contentType.includes("application/json") && res.status !== 204) {
+                    result = await res.json();
+                }
 
                 if (res.ok) {
-                    // Instead of just innerHTML, redirect the user
                     window.location.href = '/contact/success';
                 } else {
-                    throw new Error(result.error || 'Failed to send');
+                    throw new Error(result.error || `Server responded with ${res.status}`);
                 }
             } catch (err) {
                 const msg = document.getElementById('form-status');
