@@ -24,7 +24,7 @@ export async function onRequestPost({ request, env }) {
             const timeTaken = submittedAt - formCreatedAt;
 
             // Too fast OR unrealistically slow (tab open for hours)
-            if (timeTaken < 6000 || timeTaken > 300000) {
+            if (timeTaken < 2000 || timeTaken > 300000) {
                 return new Response(JSON.stringify({ error: 'Invalid submission time' }), { status: 400 });
             }
         }
