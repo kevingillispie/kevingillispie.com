@@ -271,7 +271,14 @@
             btnText.style.display = 'none';
             btnLoading.style.display = 'inline';
 
-            const token = await grecaptcha.execute('6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH', { action: 'contact' });
+            let token = "";
+            if (typeof grecaptcha !== 'undefined') {
+                try {
+                    token = await grecaptcha.execute('6LcCTx8sAAAAAEErCqFOlmpintcGJDVVxTDA4nZH', { action: 'contact' });
+                } catch (err) {
+                    console.error("reCAPTCHA execution failed", err);
+                }
+            }
             document.getElementById('recaptcha-token').value = token;
 
             const formData = new FormData(e.target);

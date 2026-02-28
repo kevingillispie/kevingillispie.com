@@ -3,8 +3,16 @@ export async function onRequestPost({ request, env }) {
 
     try {
         const body = await request.json();
-        const { name, email, subject, message, 'g-recaptcha-response': token, timestamp } = body;
-
+        const {
+            name,
+            email,
+            subject,
+            message,
+            'g-recaptcha-response': token,
+            phone,
+            confirm_email,
+            timestamp
+        } = body;
         // LOG 1: Check if request arrived
         console.log("Request received for:", email);
 
